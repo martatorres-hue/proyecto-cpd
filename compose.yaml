@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres-matriz:
+    image: postgres:15-alpine
+    container_name: cpd-matriz-db
+    environment:
+      POSTGRES_USER: ucom_admin
+      POSTGRES_PASSWORD: password_matriz
+      POSTGRES_DB: matriz_db
+    networks:
+      - red_empresarial
+
+  postgres-sucursal-a:
+    image: postgres:15-alpine
+    container_name: cpd-sucursal-a-db
+    environment:
+      POSTGRES_USER: ucom_admin
+      POSTGRES_PASSWORD: password_sucursal_a
+      POSTGRES_DB: sucursal_a_db
+    networks:
+      - red_empresarial
+
+  postgres-sucursal-b:
+    image: postgres:15-alpine
+    container_name: cpd-sucursal-b-db
+    environment:
+      POSTGRES_USER: ucom_admin
+      POSTGRES_PASSWORD: password_sucursal_b
+      POSTGRES_DB: sucursal_b_db
+    networks:
+      - red_empresarial
+
+  postgres-sucursal-c:
+    image: postgres:15-alpine
+    container_name: cpd-sucursal-c-db
+    environment:
+      POSTGRES_USER: ucom_admin
+      POSTGRES_PASSWORD: password_sucursal_c
+      POSTGRES_DB: sucursal_c_db
+    networks:
+      - red_empresarial
+
+networks:
+  red_empresarial:
+    driver: bridge
